@@ -135,6 +135,7 @@ LICENSE file.
     <module>solr</module>
     <module>tarantool</module>
     <!--<module>voldemort</module>-->
+    <module>gianessadb</module>
   </modules>
 
   <build>
