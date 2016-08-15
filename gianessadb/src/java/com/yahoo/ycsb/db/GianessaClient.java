@@ -40,7 +40,7 @@ import java.util.Set;
 import java.util.Vector;
 
 
-public class RedisClient extends DB {
+public class GianessaClient extends DB {
 
   public static final String GIANESSA_IP = "127.0.0.1";
   public static final int  GIANESSA_PORT= 8889;
