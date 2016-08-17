@@ -46,8 +46,14 @@ public class GianessaClient extends DB {
   public static final int  GIANESSA_PORT= 8889;
   private GianessaDB gianessadb;
 
+  public GianessaClient(){
+    System.out.println("-------------CONSTRUCTOR---------------");
+  }
+
   public void init() throws DBException {
+    System.out.println("-------------INIT---------------");
     gianessadb= new GianessaDB(GIANESSA_IP,GIANESSA_PORT);
+    System.out.println("-------------PROEBLEMA---------------");
     gianessadb.connect();
   }
 
