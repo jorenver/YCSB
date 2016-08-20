@@ -1,0 +1,6 @@
+mvn archetype:create -DgroupId=com.yahoo.ycsb -DartifactId=gianessadb
+
+mvn -pl com.yahoo.ycsb:gianessadb-binding -am clean package
+./bin/ycsb load gianessadb -s -P workloads/workloada  > outputLoad.txt
+./bin/ycsb run gianessadb -s -P workloads/workloada  > run.txt
+
