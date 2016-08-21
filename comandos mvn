@@ -1,5 +1,5 @@
 mvn archetype:create -DgroupId=com.yahoo.ycsb -DartifactId=gianessadb
 
 mvn -pl com.yahoo.ycsb:gianessadb-binding -am clean package
-./bin/ycsb load gianessadb -s -P workloads/workloada -p "gianessadb.host=127.0.0.1" -p "gianessadb.port=6379" > outputLoad.txt
-./bin/ycsb run gianessadb -s -P workloads/workloada  -p "gianessadb.host=127.0.0.1" -p "gianessadb.port=6379" > run.txt
+./bin/ycsb load gianessadb -s -P workloads/workloada -p "gianessadb.host=127.0.0.1" -p "gianessadb.port=8889" > outputLoad.txt
+./bin/ycsb run gianessadb -s -P workloads/workloada  -p "gianessadb.host=127.0.0.1" -p "gianessadb.port=8889" > run.txt

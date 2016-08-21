@@ -207,7 +207,7 @@ public class GianessaDB{
 	        	dataOutput.write(ok.getBytes(), 0, ok.length());//enviar OK
 
 	        	String respondString = new String(respond);//transformo los bytes a String
-	        	System.out.println(respondString);
+	        	//System.out.println(respondString);
 
 	         	if(respondString.contains("<<<fin_cadena>>>")){
 	         		break;
