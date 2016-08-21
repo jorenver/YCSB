@@ -43,19 +43,30 @@ import java.util.LinkedList;
 
 public class GianessaClient extends DB {
 
-  public static final String GIANESSA_IP = "127.0.0.1";
-  public static final int  GIANESSA_PORT= 8889;
+  //public static final String GIANESSA_IP = "127.0.0.1";
+  //public static final int  GIANESSA_PORT= 8889;
+  public static final String HOST_PROPERTY = "gianessadb.host";
+  public static final String PORT_PROPERTY = "gianessadb.port";
   private GianessaDB gianessadb;
 
   public void init() throws DBException {
-    gianessadb= new GianessaDB(GIANESSA_IP,GIANESSA_PORT);
-    //System.out.println("-------------PROEBLEMA---------------");
+    Properties props = getProperties();
+    int port;
+
+    String portString = props.getProperty(PORT_PROPERTY);
+    if (portString != null) {
+      port = Integer.parseInt(portString);
+    } else {
+      port = 8889;
+    }
+    String host = props.getProperty(HOST_PROPERTY);
+
+    gianessadb= new GianessaDB(host,port);
     gianessadb.connect();
   }
 
   public void cleanup() throws DBException {
     gianessadb.disconnect();
-    //System.out.println("-------------cleanup---------------");
   }
 
   private LinkedList<String> buildValue(HashMap<String, ByteIterator> values){
@@ -100,7 +111,6 @@ public class GianessaClient extends DB {
       return Status.OK;
     else
       return Status.ERROR;
-    //System.out.println("-------------insert---------------");
   }
 
   @Override
@@ -111,7 +121,6 @@ public class GianessaClient extends DB {
       return Status.OK;
     else
       return Status.ERROR;
-    //System.out.println("-------------delete---------------");
   }
 
   @Override
@@ -123,7 +132,6 @@ public class GianessaClient extends DB {
       return Status.OK;
     else
       return Status.ERROR;
-    //System.out.println("-------------update---------------");
   }
 
   @Override
@@ -135,7 +143,6 @@ public class GianessaClient extends DB {
       return Status.OK;
     else
       return Status.ERROR;
-
   }
 
 }
