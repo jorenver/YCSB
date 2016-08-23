@@ -1,0 +1,2 @@
+source experimento6.sh redis redis.host=127.0.0.1 redis.port=6379
+source experimento5.sh redis redis.host=127.0.0.1 redis.port=6379
