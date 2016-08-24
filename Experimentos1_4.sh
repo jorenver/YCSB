@@ -3,6 +3,7 @@ host=$2
 hostDefecto=127.0.0.1
 puerto=${3:?'Falta asignar el puerto'}
 target=$4
+hilos=$5
 targetDefecto=100
 mkdir Experimentos_${nombreBase}
 function ejecutarExperimentos(){
@@ -26,8 +27,8 @@ function ejecutarExperimentos(){
 		 		  	mkdir Experimentos_${nombreBase}/workload_${i}/Throughput_${resultado}
 		 			for k in {1..6} 
 		 			 do
-						./bin/ycsb load $nombreBase -s -P workloads/$nombreWorkload -p "${host:=$hostDefecto}" -p "$puerto"  -p  operationcount=10000  -target $resultado>workload_${i}/Throughput_${resultado}/LCopia${k}.txt 
-						./bin/ycsb run $nombreBase -s -P workloads/$nombreWorkload -p "${host:=$hostDefecto}" -p "$puerto"  -p  operationcount=10000  -target $resultado>workload_${i}/Throughput_${resultado}/RCopia${k}.txt 
+						./bin/ycsb load $nombreBase -s -P workloads/$nombreWorkload -p "${host:=$hostDefecto}" -p "$puerto"  -p  operationcount=10000  -target $resultado -thread $hilos>workload_${i}/Throughput_${resultado}/LCopia${k}.txt 
+						./bin/ycsb run $nombreBase -s -P workloads/$nombreWorkload -p "${host:=$hostDefecto}" -p "$puerto"  -p  operationcount=10000  -target $resultado -thread $hilos>workload_${i}/Throughput_${resultado}/RCopia${k}.txt 
 		 			done
 				done
 	done
