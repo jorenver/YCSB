@@ -27,8 +27,8 @@ function ejecutarExperimentos(){
 		 		  	mkdir Experimentos_${nombreBase}/workload_${i}/Throughput_${resultado}
 		 			for k in {1..6} 
 		 			 do
-						./bin/ycsb load $nombreBase -s -P workloads/$nombreWorkload -p "${host:=$hostDefecto}" -p "$puerto"  -p  operationcount=10000  -target $resultado -thread $hilos>workload_${i}/Throughput_${resultado}/LCopia${k}.txt 
-						./bin/ycsb run $nombreBase -s -P workloads/$nombreWorkload -p "${host:=$hostDefecto}" -p "$puerto"  -p  operationcount=10000  -target $resultado -thread $hilos>workload_${i}/Throughput_${resultado}/RCopia${k}.txt 
+						./bin/ycsb load $nombreBase -s -P workloads/$nombreWorkload -p "${host:=$hostDefecto}" -p "$puerto"  -p  operationcount=10000  -target $resultado -threads $hilos>Experimentos_${nombreBase}/workload_${i}/Throughput_${resultado}/LCopia${k}.txt 
+						./bin/ycsb run $nombreBase -s -P workloads/$nombreWorkload -p "${host:=$hostDefecto}" -p "$puerto"  -p  operationcount=10000  -target $resultado -threads $hilos>Experimentos_${nombreBase}/workload_${i}/Throughput_${resultado}/RCopia${k}.txt 
 		 			done
 				done
 	done
